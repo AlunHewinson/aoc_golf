@@ -13,8 +13,8 @@ Advent of Code... in as few characters as possible. Just because.
 
 ```{r get_scores, include=FALSE}
 files <- list.files(pattern = "R$")
-lines <- sapply(files, readLines, warn=FALSE)
-day_scores <- sapply(lines, function(q) sum(nchar(q))) + length(lines) - 1
+lines <- sapply(files, scan, what="raw", sep="\n")
+day_scores <- sapply(lines, function(q) sum(nchar(q))) + sapply(lines, length) - 1
 names(day_scores) <- NULL
 98
 ```
